@@ -1,0 +1,485 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: SendFox for Wordpress\n"
+"POT-Creation-Date: 2022-08-17 17:12+0600\n"
+"PO-Revision-Date: 2020-03-03 17:39+0600\n"
+"Last-Translator: \n"
+"Language-Team: BogdanFix, Inc <support@bogdanfix.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/gutenberg/gutenberg-email-optin.php:53
+msgid ""
+"A customizable email optin block that allows to let people subscribe to "
+"your SendFox lists"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:55
+msgid "Can not retrieve lists from SendFox. Please, check your API key."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:57
+msgid "Form Heading"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:59
+msgid "Enter form heading..."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:61
+msgid "Form Description"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:63
+msgid "Enter form description..."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:65
+msgid "Select SendFox List"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:67
+msgid "Button Label"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:69
+msgid "Enter button label..."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:71
+msgid "Heading Text Color"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:73
+msgid "Description Text Color"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:75
+msgid "Button Label Color"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:77
+msgid "Button Background Color"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:79
+msgid "Form Background Color"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:81
+msgid "Form Background Image"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:83
+msgid "Upload Image"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:85
+msgid "Remove Image"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:87
+msgid "First name"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:89
+msgid "Last name"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:91
+msgid "Email"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:124
+msgid "All fields are required."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:126
+msgid "You have entered an invalid email address."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:128
+msgid "Unable to process request. Please, contact support."
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:130
+msgid "Thanks for subscribing!"
+msgstr ""
+
+#: wp-sendfox-admin.php:89
+msgid "Thank you for using this plugin. You are amazing!"
+msgstr ""
+
+#: wp-sendfox-admin.php:98
+msgid "Connect"
+msgstr ""
+
+#: wp-sendfox-admin.php:100 wp-sendfox-admin.php:288
+msgid "Integrations"
+msgstr ""
+
+#: wp-sendfox-admin.php:101
+msgid "Export"
+msgstr ""
+
+#: wp-sendfox-admin.php:112
+msgid "Log"
+msgstr ""
+
+#: wp-sendfox-admin.php:137
+msgid "Connected"
+msgstr ""
+
+#: wp-sendfox-admin.php:148
+msgid "Error:"
+msgstr ""
+
+#: wp-sendfox-admin.php:152
+msgid "Error: Undefined"
+msgstr ""
+
+#: wp-sendfox-admin.php:157 wp-sendfox.php:381
+msgid "Error: Response Status"
+msgstr ""
+
+#: wp-sendfox-admin.php:162
+msgid "Not Connected"
+msgstr ""
+
+#: wp-sendfox-admin.php:176
+msgid "Lists were successfully reloaded from your SendFox account."
+msgstr ""
+
+#: wp-sendfox-admin.php:181
+msgid "API Settings"
+msgstr ""
+
+#: wp-sendfox-admin.php:193
+msgid "Status:"
+msgstr ""
+
+#: wp-sendfox-admin.php:200
+msgid "API Token:"
+msgstr ""
+
+#: wp-sendfox-admin.php:202
+msgid "Your SendFox API key"
+msgstr ""
+
+#: wp-sendfox-admin.php:204
+#, php-format
+msgid ""
+"Personal Access Token to connect with your SendFox account. <a href=\"%s\" "
+"target=\"_blank\">Get your API key here.</a>"
+msgstr ""
+
+#: wp-sendfox-admin.php:209
+msgid "Enable log?"
+msgstr ""
+
+#: wp-sendfox-admin.php:212
+msgid "disabled"
+msgstr ""
+
+#: wp-sendfox-admin.php:213
+msgid "enabled"
+msgstr ""
+
+#: wp-sendfox-admin.php:219 wp-sendfox-admin.php:221
+msgid "Reload lists"
+msgstr ""
+
+#: wp-sendfox-admin.php:233
+msgid "SendFox website, title and logo are owned by"
+msgstr ""
+
+#: wp-sendfox-admin.php:251
+msgid "Comment Form"
+msgstr ""
+
+#: wp-sendfox-admin.php:252
+msgid "Subscribes people from your WordPress comment form"
+msgstr ""
+
+#: wp-sendfox-admin.php:255
+msgid "Registration Form"
+msgstr ""
+
+#: wp-sendfox-admin.php:256
+msgid "Subscribes people from your WordPress registration form"
+msgstr ""
+
+#: wp-sendfox-admin.php:262
+msgid "WooCommerce Checkout"
+msgstr ""
+
+#: wp-sendfox-admin.php:263
+msgid "Subscribes people from WooCommerce's checkout form"
+msgstr ""
+
+#: wp-sendfox-admin.php:269
+msgid "Divi Email Optin"
+msgstr ""
+
+#: wp-sendfox-admin.php:270
+msgid "Adds SendFox to the list of providers in Divi's Email Optin block"
+msgstr ""
+
+#: wp-sendfox-admin.php:276
+msgid "Gutenberg Email Optin"
+msgstr ""
+
+#: wp-sendfox-admin.php:277
+msgid ""
+"Adds new customizable Email Optin block to Gutenberg. Pick a list and let "
+"everybody subscribe from any page."
+msgstr ""
+
+#: wp-sendfox-admin.php:289
+msgid "back to all integrations"
+msgstr ""
+
+#: wp-sendfox-admin.php:298
+msgid ""
+"The table below shows all available integrations. Click on the name of an "
+"integration to edit all settings specific to that integration."
+msgstr ""
+
+#: wp-sendfox-admin.php:306
+msgid "integration settings"
+msgstr ""
+
+#: wp-sendfox-admin.php:323
+msgid "Name"
+msgstr ""
+
+#: wp-sendfox-admin.php:324
+msgid "Description"
+msgstr ""
+
+#: wp-sendfox-admin.php:325
+msgid "Status"
+msgstr ""
+
+#: wp-sendfox-admin.php:334
+msgid "Configure this integration"
+msgstr ""
+
+#: wp-sendfox-admin.php:374 wp-sendfox-admin.php:598 wp-sendfox-admin.php:635
+msgid "Enable?"
+msgstr ""
+
+#: wp-sendfox-admin.php:384 wp-sendfox-admin.php:402 wp-sendfox-admin.php:422
+#: wp-sendfox-admin.php:504 wp-sendfox-admin.php:524 wp-sendfox-admin.php:608
+#: wp-sendfox-admin.php:645
+msgid "yes"
+msgstr ""
+
+#: wp-sendfox-admin.php:386
+#, php-format
+msgid ""
+"Enable the %s integration? This will add a sign-up checkbox to the form."
+msgstr ""
+
+#: wp-sendfox-admin.php:392
+msgid "Implicit?"
+msgstr ""
+
+#: wp-sendfox-admin.php:404
+msgid ""
+"Select \"yes\" if you want to subscribe people without asking them "
+"explicitly."
+msgstr ""
+
+#: wp-sendfox-admin.php:406
+msgid "Does not bypass the double opt-in on Free & Lifetime plans."
+msgstr ""
+
+#: wp-sendfox-admin.php:412
+msgid "Pre-checked?"
+msgstr ""
+
+#: wp-sendfox-admin.php:424
+msgid "Select \"yes\" if the checkbox should be pre-checked."
+msgstr ""
+
+#: wp-sendfox-admin.php:430
+msgid "SendFox list"
+msgstr ""
+
+#: wp-sendfox-admin.php:442 wp-sendfox-admin.php:698
+msgid "are you connected to SendFox?"
+msgstr ""
+
+#: wp-sendfox-admin.php:453
+msgid "select the list..."
+msgstr ""
+
+#: wp-sendfox-admin.php:476
+msgid "Checkbox label text"
+msgstr ""
+
+#: wp-sendfox-admin.php:488
+msgid ""
+"HTML tags like <code>&lt;strong&gt&lt;em&gt&lt;a&gt</code> are allowed in "
+"the label text."
+msgstr ""
+
+#: wp-sendfox-admin.php:494
+msgid "Load default CSS?"
+msgstr ""
+
+#: wp-sendfox-admin.php:506
+msgid "Select \"yes\" if the checkbox looks sloppy."
+msgstr ""
+
+#: wp-sendfox-admin.php:514
+msgid "Manual comment approval check?"
+msgstr ""
+
+#: wp-sendfox-admin.php:526
+msgid ""
+"Submit email to SendFox after comment was approved manually. Otherwise, "
+"only emails from auto approved comments will be submitted."
+msgstr ""
+
+#: wp-sendfox-admin.php:536
+msgid "Position on checkout"
+msgstr ""
+
+#: wp-sendfox-admin.php:541
+msgid "select the position..."
+msgstr ""
+
+#: wp-sendfox-admin.php:550
+msgid "After billing details"
+msgstr ""
+
+#: wp-sendfox-admin.php:551
+msgid "After shipping details"
+msgstr ""
+
+#: wp-sendfox-admin.php:552
+msgid "After customer details"
+msgstr ""
+
+#: wp-sendfox-admin.php:553
+msgid "Before submit button"
+msgstr ""
+
+#: wp-sendfox-admin.php:554
+msgid "After order notes"
+msgstr ""
+
+#: wp-sendfox-admin.php:593
+msgid ""
+"Important: Please, make sure only one Divi Theme or Divi Builder is "
+"enabled on your site. Either one theme or one plugin."
+msgstr ""
+
+#: wp-sendfox-admin.php:610
+#, php-format
+msgid ""
+"Enable the %s integration? This will add SendFox to the list of email "
+"providers in Divi."
+msgstr ""
+
+#: wp-sendfox-admin.php:646
+#, php-format
+msgid ""
+"Enable the %s integration? This will add new Email Optin block to "
+"Gutenberg blocks."
+msgstr ""
+
+#: wp-sendfox-admin.php:670
+msgid "Export your contacts"
+msgstr ""
+
+#: wp-sendfox-admin.php:674
+msgid ""
+"Here you can export either all your Wordpress user emails or all your "
+"WooCommerce customers into your SendFox account."
+msgstr ""
+
+#: wp-sendfox-admin.php:676
+msgid "If email already exists in your list(s), it will be ignored."
+msgstr ""
+
+#: wp-sendfox-admin.php:680
+msgid ""
+"To start pick the destination and source below and click \"Start export\":"
+msgstr ""
+
+#: wp-sendfox-admin.php:685
+msgid "Pick the List (export destination):"
+msgstr ""
+
+#: wp-sendfox-admin.php:718
+msgid "Pick Export mode (export source):"
+msgstr ""
+
+#: wp-sendfox-admin.php:722
+msgid "Export Wordpress user emails"
+msgstr ""
+
+#: wp-sendfox-admin.php:723
+msgid "Export WooCommerce customer emails"
+msgstr ""
+
+#: wp-sendfox-admin.php:728
+msgid "Do not close or reload the page during export."
+msgstr ""
+
+#: wp-sendfox-admin.php:740
+msgid "Start export"
+msgstr ""
+
+#: wp-sendfox-admin.php:744
+msgid "Contacts exported successfully:"
+msgstr ""
+
+#: wp-sendfox-admin.php:745
+msgid "Contacts not exported:"
+msgstr ""
+
+#: wp-sendfox-admin.php:989
+msgid "Logged data"
+msgstr ""
+
+#: wp-sendfox-admin.php:993
+msgid ""
+"Here you can find the detailed description of all the SendFox API requests "
+"and responses."
+msgstr ""
+
+#: wp-sendfox-admin.php:1004
+msgid "Log was cleared successfully."
+msgstr ""
+
+#: wp-sendfox-admin.php:1012
+msgid "Oops, log is empty..."
+msgstr ""
+
+#: wp-sendfox-admin.php:1026
+msgid "Clear log"
+msgstr ""
+
+#: wp-sendfox.php:126
+msgid "Oops, you can't access this page."
+msgstr ""
+
+#: wp-sendfox.php:283
+msgid "API Key is not set."
+msgstr ""
+
+#: wp-sendfox.php:341
+msgid "JSON Parse"
+msgstr ""

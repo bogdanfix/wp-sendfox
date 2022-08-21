@@ -1,0 +1,58 @@
+/* FRONTEND */
+
+.gb-sf4wp-gutenberg-email-optin-form-wrapper { 
+	max-width: 400px !important;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.gb-sf4wp-gutenberg-email-optin-form-wrapper h2,
+.gb-sf4wp-gutenberg-email-optin-form-wrapper p {
+	color: #FFF;
+}
+.gb-sf4wp-gutenberg-email-optin-error-msg h3 {
+	background-color: red;
+	color: white;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: normal;
+	border: 0;
+	margin: 0 0 15px 0;
+}
+.gb-sf4wp-gutenberg-email-optin-success-msg h3 {
+	background-color: green;
+	color: white;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: normal;
+	border: 0;
+	margin: 0 0 15px 0;
+}
+
+/* BACKEND */
+
+.components-button-group .components-button.sf4wp-gutenberg-visible {
+	display: inline-flex;
+}
+.components-button-group .components-button.sf4wp-gutenberg-invisible {
+	display: none;
+}
+.gb-sf4wp-gutenberg-email-optin-form-wrapper .components-text-control__input {
+	background: #FFF;
+	margin: 0 0 15px 0;
+}
+.gb-sf4wp-gutenberg-email-optin-form-wrapper .components-text-control__input,
+.gb-sf4wp-gutenberg-email-optin-submit {
+	width: 100%;
+	border: 0;
+	font-size: 16px;
+	outline: 0;
+	border-radius: 2px;
+}
+.gb-sf4wp-gutenberg-email-optin-form-wrapper .components-button {
+	text-align: center;
+	display: block;
+	font-size: 16px;
+}
+.gb-sf4wp-gutenberg-email-optin-form-wrapper .components-base-control__field {
+	overflow: hidden;
+}
