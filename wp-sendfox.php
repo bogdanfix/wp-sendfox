@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/wp-sendfox/
 Description: Capture emails and add them to your SendFox list via comments, registration, WooCommerce checkout, Gutenberg page or Divi Builder page. Export your WP users and WooCommerce customers to your list.
 Author: BogdanFix
 Author URI: https://bogdanfix.com/
-Version: 1.1.0
+Version: 1.2.0
 Text Domain: sf4wp
 Domain Path: /lang
 License: GNU General Public License v3.0
@@ -15,7 +15,7 @@ WC tested up to: 5.2.2
 */
 
 define( 'GB_SF4WP_NAME', 'SendFox for WordPress' );
-define( 'GB_SF4WP_VER', '1.1.0' );
+define( 'GB_SF4WP_VER', '1.2.0' );
 define( 'GB_SF4WP_ID', 'wp-sendfox' );
 
 define( 'GB_SF4WP_CORE_FILE', __FILE__ );

@@ -14,7 +14,7 @@ function gb_sf4wp_gutenberg_email_optin_enqueue()
 
 		'sf4wp-gutenberg-email-optin-block',
 
-	    plugin_dir_url( __FILE__ ) . 'block.css',
+	    plugin_dir_url( __FILE__ ) . 'block.min.css',
 
 	    array(),
 
@@ -52,15 +52,21 @@ function gb_sf4wp_gutenberg_email_optin_enqueue()
 
 		'block_description' => __( 'A customizable email optin block that allows to let people subscribe to your SendFox lists', 'sf4wp' ),
 
+		'block_default_heading' => __( 'Your Title Goes Here...', 'sf4wp' ),
+
+		'block_default_content' => __( 'Your content goes here...', 'sf4wp' ),
+
+		'block_default_button_text' => __( 'Subscribe', 'sf4wp' ),
+
 		'error_retrieve_lists' => __( 'Can not retrieve lists from SendFox. Please, check your API key.', 'sf4wp' ),
 
-		'label_form_heading' => __( 'Form Heading', 'sf4wp' ),
+		'panel_form_settings' => __( 'Form Settings', 'sf4wp' ),
 
-		'placeholder_form_heading' => __( 'Enter form heading...', 'sf4wp' ),
+		'panel_button_settings' => __( 'Button Settings', 'sf4wp' ),
 
-		'label_form_description' => __( 'Form Description', 'sf4wp' ),
+		'label_heading_align' => __( 'Align Heading', 'sf4wp' ),
 
-		'placeholder_form_description' => __( 'Enter form description...', 'sf4wp' ),
+		'label_subheading_align' => __( 'Align Subheading', 'sf4wp' ),		
 
 		'label_select_list' => __( 'Select SendFox List', 'sf4wp' ),
 
@@ -68,17 +74,33 @@ function gb_sf4wp_gutenberg_email_optin_enqueue()
 
 		'placeholder_button_label' => __( 'Enter button label...', 'sf4wp' ),
 
-		'label_heading_text_color' => __( 'Heading Text Color', 'sf4wp' ),
+		'label_button_label_color' => __( 'Label Color', 'sf4wp' ),
 
-		'label_description_text_color' => __( 'Description Text Color', 'sf4wp' ),
+		'label_button_bg_color' => __( 'Background Color', 'sf4wp' ),
 
-		'label_button_label_color' => __( 'Button Label Color', 'sf4wp' ),
+		'label_form_width' => __( 'Form Width', 'sf4wp' ),
 
-		'label_button_bg_color' => __( 'Button Background Color', 'sf4wp' ),
+		'label_form_width_hint' => __( 'enter number or leave empty for full width', 'sf4wp' ),
 
-		'label_form_bg_color' => __( 'Form Background Color', 'sf4wp' ),
+		'label_form_border_style' => __( 'Border Style', 'sf4wp' ),
 
-		'label_form_bg_image' => __( 'Form Background Image', 'sf4wp' ),
+		'label_form_border_width' => __( 'Border Width', 'sf4wp' ),
+
+		'label_form_border_radius' => __( 'Border Radius', 'sf4wp' ),
+
+		'label_form_border_color' => __( 'Border Color', 'sf4wp' ),
+
+		'label_form_bg_color' => __( 'Background Color', 'sf4wp' ),
+
+		'label_form_bg_image' => __( 'Background Image', 'sf4wp' ),
+
+		'label_button_border_style' => __( 'Border Style', 'sf4wp' ),
+
+		'label_button_border_width' => __( 'Border Width', 'sf4wp' ),
+
+		'label_button_border_radius' => __( 'Border Radius', 'sf4wp' ),
+
+		'label_button_border_color' => __( 'Border Color', 'sf4wp' ),
 
 		'button_upload_image' => __( 'Upload Image', 'sf4wp' ),
 

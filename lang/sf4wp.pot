@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SendFox for Wordpress\n"
-"POT-Creation-Date: 2022-08-17 17:12+0600\n"
+"POT-Creation-Date: 2022-09-15 21:55+0600\n"
 "PO-Revision-Date: 2020-03-03 17:39+0600\n"
 "Last-Translator: \n"
 "Language-Team: BogdanFix, Inc <support@bogdanfix.com>\n"
@@ -23,94 +23,123 @@ msgid ""
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:55
-msgid "Can not retrieve lists from SendFox. Please, check your API key."
+msgid "Your Title Goes Here..."
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:57
-msgid "Form Heading"
+msgid "Your content goes here..."
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:59
-msgid "Enter form heading..."
+msgid "Subscribe"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:61
-msgid "Form Description"
+msgid "Can not retrieve lists from SendFox. Please, check your API key."
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:63
-msgid "Enter form description..."
+msgid "Form Settings"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:65
-msgid "Select SendFox List"
+msgid "Button Settings"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:67
-msgid "Button Label"
+msgid "Align Heading"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:69
-msgid "Enter button label..."
+msgid "Align Subheading"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:71
-msgid "Heading Text Color"
+msgid "Select SendFox List"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:73
-msgid "Description Text Color"
+msgid "Button Label"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:75
-msgid "Button Label Color"
+msgid "Enter button label..."
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:77
-msgid "Button Background Color"
+msgid "Label Color"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:79
-msgid "Form Background Color"
+#: includes/gutenberg/gutenberg-email-optin.php:93
+msgid "Background Color"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:81
-msgid "Form Background Image"
+msgid "Form Width"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:83
-msgid "Upload Image"
+msgid "enter number or leave empty for full width"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:85
-msgid "Remove Image"
+#: includes/gutenberg/gutenberg-email-optin.php:97
+msgid "Border Style"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:87
-msgid "First name"
+#: includes/gutenberg/gutenberg-email-optin.php:99
+msgid "Border Width"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:89
-msgid "Last name"
+#: includes/gutenberg/gutenberg-email-optin.php:101
+msgid "Border Radius"
 msgstr ""
 
 #: includes/gutenberg/gutenberg-email-optin.php:91
+#: includes/gutenberg/gutenberg-email-optin.php:103
+msgid "Border Color"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:95
+msgid "Background Image"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:105
+msgid "Upload Image"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:107
+msgid "Remove Image"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:109
+msgid "First name"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:111
+msgid "Last name"
+msgstr ""
+
+#: includes/gutenberg/gutenberg-email-optin.php:113
 msgid "Email"
 msgstr ""
 
-#: includes/gutenberg/gutenberg-email-optin.php:124
+#: includes/gutenberg/gutenberg-email-optin.php:146
 msgid "All fields are required."
 msgstr ""
 
-#: includes/gutenberg/gutenberg-email-optin.php:126
+#: includes/gutenberg/gutenberg-email-optin.php:148
 msgid "You have entered an invalid email address."
 msgstr ""
 
-#: includes/gutenberg/gutenberg-email-optin.php:128
+#: includes/gutenberg/gutenberg-email-optin.php:150
 msgid "Unable to process request. Please, contact support."
 msgstr ""
 
-#: includes/gutenberg/gutenberg-email-optin.php:130
+#: includes/gutenberg/gutenberg-email-optin.php:152
 msgid "Thanks for subscribing!"
 msgstr ""
 

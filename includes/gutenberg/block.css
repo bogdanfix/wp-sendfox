@@ -1,13 +1,14 @@
 /* FRONTEND */
 
 .gb-sf4wp-gutenberg-email-optin-form-wrapper { 
-	max-width: 400px !important;
+	width: 100%;
 	padding: 20px;
 	box-sizing: border-box;
 }
 .gb-sf4wp-gutenberg-email-optin-form-wrapper h2,
 .gb-sf4wp-gutenberg-email-optin-form-wrapper p {
 	color: #FFF;
+	margin-bottom: .5em;
 }
 .gb-sf4wp-gutenberg-email-optin-error-msg h3 {
 	background-color: red;
@@ -30,11 +31,21 @@
 
 /* BACKEND */
 
-.components-button-group .components-button.sf4wp-gutenberg-visible {
-	display: inline-flex;
+.block-editor-block-inspector .components-base-control {
+	margin-bottom: 10px !important;
 }
-.components-button-group .components-button.sf4wp-gutenberg-invisible {
+.components-panel .gb-sf4wp-gutenberg-label {
+	display: block;
+	margin: 10px 0 0;
+}
+.components-panel .gb-sf4wp-gutenberg-invisible {
 	display: none;
+}
+.components-panel .components-flex.gb-sf4wp-gutenberg-visible {
+	display: flex;
+}
+.components-panel .components-button-group .components-button.gb-sf4wp-gutenberg-visible {
+	display: inline-flex;
 }
 .gb-sf4wp-gutenberg-email-optin-form-wrapper .components-text-control__input {
 	background: #FFF;

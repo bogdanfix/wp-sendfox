@@ -11,7 +11,9 @@
     var BlockControls = blockEditor.BlockControls;
     var RichText = blockEditor.RichText;
     var InspectorControls = blockEditor.InspectorControls;
+    var PanelBody = component.PanelBody;
     var TextControl = component.TextControl;
+    var NumberControl = component.__experimentalNumberControl;
     var TextareaControl = component.TextareaControl;
     var SelectControl = component.SelectControl;
     var ColorPicker = component.ColorPicker;
@@ -22,8 +24,8 @@
     // styles
 
     const labelStyles = {
-    	marginBottom: '10px',
-    	display: 'block'
+    	display: 'block',
+    	marginTop: '10px'
     };
 
     // manipulate the promise
@@ -68,35 +70,27 @@
 		attributes: {
 			formHeading: {
 				type: 'string',
-	           	default: 'Your Title Goes Here'
-			},
-			formHeadingStyle: {
-				type: 'string',
-				source: 'attribute',
+				source: 'html',
 				selector: 'h2',
-				attribute: 'style'
-	        },
-	        formHeadingTextColor: {
-	        	type: 'string',
-	            default: '#FFFFFF'
-	        },
-	        formDescription: {
-	            type: 'string',
-	            default: 'Your content goes here. Edit or remove this text in the block settings.'
-	        },
-    		formDescriptionStyle: {
-    			type: 'string',
-    			source: 'attribute',
-    			selector: 'p',
-    			attribute: 'style'
-            },
-            formDescriptionTextColor: {
+	           	default: sf4wp_gutenberg.block_default_heading
+			},
+			formDescription: {
 				type: 'string',
-				default: '#FFFFFF'
-            },
+				source: 'html',
+				selector: 'p',
+			   	default: sf4wp_gutenberg.block_default_content
+			},
+			formHeadingTextAlign: {
+				type: 'string',
+				default: 'left'
+			},
+			formDescriptionTextAlign: {
+				type: 'string',
+				default: 'left'
+			},
 	        formBtnText: {
 	        	type: 'string',
-	        	default: 'Subscribe'
+	        	default: sf4wp_gutenberg.block_default_button_text
 	        },
 	        formBtnBgColor: {
 	        	type: 'string',
@@ -105,6 +99,42 @@
 	        formBtnTextColor:{
 	            type: 'string',
 	            default: '#FFFFFF'
+	        },
+	        formBtnBorderStyle: {
+	        	type: 'string',
+	        	default: 'hidden'
+	        },
+	        formBtnBorderWidth: {
+	        	type: 'number',
+	        	default: 1
+	        },
+	        formBtnBorderColor: {
+	        	type: 'string',
+	        	default: '#000'
+	        },
+	        formBtnBorderRadius: {
+	        	type: 'number',
+	        	default: 0
+	        },
+	        formMaxWidth: {
+	        	type: 'number',
+	        	default: ''
+	        },
+	        formBorderStyle: {
+	        	type: 'string',
+	        	default: 'hidden'
+	        },
+	        formBorderWidth: {
+	        	type: 'number',
+	        	default: 1
+	        },
+	        formBorderColor: {
+	        	type: 'string',
+	        	default: '#000'
+	        },
+	        formBorderRadius: {
+	        	type: 'number',
+	        	default: 0
 	        },
 	        formBtnStyle:{
 	            type: 'string',
@@ -139,33 +169,11 @@
 		    	setAttributes( { formList: '' } );
 		    }
 
-			const onChangeFormHeading = ( heading ) => {
-				
-		        setAttributes( { formHeading: heading } );
-
-		    };
-
-		    const onChangeFormDescription = ( description ) => {
-
-		    	setAttributes( { formDescription: description } );
-
-		    };
+		    var blockProps = wp.blockEditor.useBlockProps();
 
 		    const onChangeList = ( list ) => {
 
 		    	setAttributes( { formList: list } );
-
-		    };
-
-		    const onChangeFormHeadingTextColor = ( headingTextColor ) => {
-
-		    	setAttributes( { formHeadingTextColor: headingTextColor } );
-
-		    };
-
-		    const onChangeFormDescriptionTextColor = ( descriptionTextColor ) => {
-
-		    	setAttributes( { formDescriptionTextColor: descriptionTextColor } );
 
 		    };
 
@@ -207,24 +215,6 @@
 
 		    // STYLES
 
-		    // heading style
-
-		    var formHeadingStyle = attributes.formHeadingStyle;
-		    var formHeadingTextColor = attributes.formHeadingTextColor;
-
-		    formHeadingStyle = {
-		    	color: formHeadingTextColor
-		    }
-
-		    // description style
-
-		    var formDescriptionStyle = attributes.formDescriptionStyle;
-		    var formDescriptionTextColor = attributes.formDescriptionTextColor;
-
-		    formDescriptionStyle = {
-		    	color: formDescriptionTextColor
-		    }
-
 		    // button background, text color and style
 
 		    var btnStyle = attributes.formBtnStyle;
@@ -236,7 +226,11 @@
 		        color: btnTextColor,
 		        maxWidth: '100%',
 		        minWidth: '100%',
-		        height: '45px'
+		        height: '45px',
+				borderStyle: attributes.formBtnBorderStyle,
+				borderWidth: attributes.formBtnBorderWidth + 'px',
+				borderColor: attributes.formBtnBorderColor,
+				borderRadius: attributes.formBtnBorderRadius + 'px'
 		    };
 
 		    // form style
@@ -255,64 +249,101 @@
 		        backgroundImage: 'url(' + formBgImg + ')',
 		        backgroundSize: 'cover',
 		        backgroundPosition: 'center',
-		        backgroundRepeat: 'no-repeat'
+		        backgroundRepeat: 'no-repeat',
+				borderStyle: attributes.formBorderStyle,
+				borderWidth: attributes.formBorderWidth + 'px',
+				borderColor: attributes.formBorderColor,
+				maxWidth: attributes.formMaxWidth ? attributes.formMaxWidth + 'px' : '',
+				borderRadius: attributes.formBorderRadius + 'px'
 		    };
 
 		    var inputStyle = {
 		    	padding: '12px'
 		    };
 
-		    var removeBtnVisibility = 'is-button is-destructive';
+		    var removeBgImgBtnVisibility = 'is-button is-destructive';
 
-		    removeBtnVisibility = formBgImg ? 
-		    	removeBtnVisibility + ' sf4wp-gutenberg-visible' : 
-		    	removeBtnVisibility + ' sf4wp-gutenberg-invisible';
+		    removeBgImgBtnVisibility = formBgImg ? 
+		    	removeBgImgBtnVisibility + ' gb-sf4wp-gutenberg-visible' : 
+		    	removeBgImgBtnVisibility + ' gb-sf4wp-gutenberg-invisible';
 
 			return(
 				el( Fragment, {},
-					el( InspectorControls,{},
-						el(
-							'div', { className: 'components-panel__body is-opened gb-sf4wp-gutenberg-email-optin-form-controls' },
-							
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_heading ),
-							
-							el( TextControl, { placeholder: sf4wp_gutenberg.placeholder_form_heading, onChange: onChangeFormHeading, value: attributes.formHeading }),
-							
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_description ),
-							
-							el( TextareaControl, { placeholder: sf4wp_gutenberg.placeholder_form_description, onChange: onChangeFormDescription, value: attributes.formDescription }),
-							
-							// el( 'label', { style: labelStyles }, 'Email Provider' ),
-							
-							// el( TextControl, { type: 'hidden', value: sendfoxEnabled ? 'SendFox' : '', className: 'gb-sf4wp-gutenberg-email-optin-form-controls-provider' }),
-							
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_select_list ),
-							
+
+					el( InspectorControls, {},
+
+						el( PanelBody, { title: sf4wp_gutenberg.label_select_list }, 
+
 							el( SelectControl, { options: optionsArray, value: attributes.formList, onChange: onChangeList, className: 'gb-sf4wp-gutenberg-email-optin-form-controls-lists' }),
+						),
 
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_label ),
-							
-							el( TextControl, { placeholder: sf4wp_gutenberg.placeholder_button_label, onChange: onChangeButtonText, value: attributes.formBtnText }),
-							
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_heading_text_color ),
-							
-							el( ColorPicker, { onChange: onChangeFormHeadingTextColor }),
+						el( PanelBody, { title: sf4wp_gutenberg.panel_form_settings, initialOpen: false },
 
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_description_text_color ),
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_heading_align ),
+
+							el( SelectControl, { options: [
+									{ label: 'left', value: 'left' },
+									{ label: 'right', value: 'right' },
+									{ label: 'center', value: 'center' },
+									{ label: 'justify', value: 'justify' },
+								],
+								value: attributes.formHeadingTextAlign, onChange: function( text_align ){
+									setAttributes( { formHeadingTextAlign: text_align } );
+								}
+							}),
+
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_subheading_align ),
+
+							el( SelectControl, { options: [
+									{ label: 'left', value: 'left' },
+									{ label: 'right', value: 'right' },
+									{ label: 'center', value: 'center' },
+									{ label: 'justify', value: 'justify' },
+								],
+								value: attributes.formDescriptionTextAlign, onChange: function( text_align ){
+									setAttributes( { formDescriptionTextAlign: text_align } );
+								}
+							}),
+
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_width ),
+
+							el( 'label', { 
+									style: { display: 'block', color: '#777777', fontSize: '12px', lineHeight: 1.2 } 
+								}, 
+								sf4wp_gutenberg.label_form_width_hint
+							),
+
+							el( NumberControl, { placeholder: '100%', onChange: function( value ){ setAttributes({ formMaxWidth: value }) }, value: attributes.formMaxWidth }),
 							
-							el( ColorPicker, { onChange: onChangeFormDescriptionTextColor }),
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_border_style ),
+
+							el( SelectControl, { options: [
+									{ label: 'none', value: 'none' },
+									{ label: 'solid', value: 'solid' },
+									{ label: 'dotted', value: 'dotted' },
+									{ label: 'dashed', value: 'dashed' },
+									{ label: 'double', value: 'double' },
+								], 
+								value: attributes.formBorderStyle, onChange: function( value ){
+				                	setAttributes( { formBorderStyle: value } );
+								}
+							}),
 							
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_label_color ),
-							
-							el( ColorPicker, { onChange: onChangeButtonTextColor }),
-							
-							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_bg_color ),
-							
-							el( ColorPicker, { onChange: onChangeButtonBackgroundColor }),
-							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_border_width ),
+
+							el( NumberControl, { onChange: function( value ){ setAttributes({ formBorderWidth: value })}, value: attributes.formBorderWidth }),
+						
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_border_radius ),
+
+							el( NumberControl, { onChange: function( value ){ setAttributes({ formBorderRadius: value })}, value: attributes.formBorderRadius }),
+
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_border_color ),
+
+							el( ColorPicker, { onChange: function( value ){ setAttributes({ formBorderColor: value })}}),
+
 							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_bg_color ),
 							
-							el( ColorPicker, { onChange: onChangeFormBackgroundColor }),
+							el( ColorPicker, { onChange: onChangeFormBackgroundColor, enableAlpha: true }),
 							
 							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_form_bg_image ),
 
@@ -328,17 +359,78 @@
 									}
 								}),
 
-								el( Button, { onClick: onClickRemoveBgImg, className: removeBtnVisibility }, sf4wp_gutenberg.button_remove_image )
+								el( Button, { onClick: onClickRemoveBgImg, className: removeBgImgBtnVisibility }, sf4wp_gutenberg.button_remove_image )
 
 							)
+						),
+
+						el( PanelBody, { title: sf4wp_gutenberg.panel_button_settings, initialOpen: false },
+							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_border_style ),
+
+							el( SelectControl, { options: [
+									{ label: 'none', value: 'none' },
+									{ label: 'solid', value: 'solid' },
+									{ label: 'dotted', value: 'dotted' },
+									{ label: 'dashed', value: 'dashed' },
+									{ label: 'double', value: 'double' },
+								], 
+								value: attributes.formBtnBorderStyle, onChange: function( value ){
+									setAttributes( { formBtnBorderStyle: value } );
+								}
+							}),
+							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_border_width ),
+
+							el( NumberControl, { onChange: function( value ){ setAttributes({ formBtnBorderWidth: value })}, value: attributes.formBtnBorderWidth }),
+							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_border_radius ),
+
+							el( NumberControl, { onChange: function( value ){ setAttributes({ formBtnBorderRadius: value })}, value: attributes.formBtnBorderRadius }),
+							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_border_color ),
+
+							el( ColorPicker, { onChange: function( value ){ setAttributes({ formBtnBorderColor: value })}}),
+
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_label ),
+							
+							el( TextControl, { placeholder: sf4wp_gutenberg.placeholder_button_label, onChange: onChangeButtonText, value: attributes.formBtnText }),
+							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_label_color ),
+							
+							el( ColorPicker, { onChange: onChangeButtonTextColor }),
+							
+							el( 'label', { style: labelStyles }, sf4wp_gutenberg.label_button_bg_color ),
+							
+							el( ColorPicker, { onChange: onChangeButtonBackgroundColor }),
 						)
 					),
 
 					el( 'div', { className: 'gb-sf4wp-gutenberg-email-optin-form-wrapper', style: formStyle },
 
-						el( RichText.Content, { tagName: 'h2', value: attributes.formHeading, style: formHeadingStyle }, attributes.formHeading ),
+						el( RichText, Object.assign( blockProps, {
+							style: {
+								'text-align': attributes.formHeadingTextAlign
+							},
+							tagName: 'h2',
+							value: attributes.formHeading,
+							onChange: function( content ) {
+								setAttributes( { formHeading: content } );
+							},
+							placeholder: sf4wp_gutenberg.block_default_heading,
+						})),
 
-						el( RichText.Content, { tagName: 'p', value: attributes.formDescription, style: formDescriptionStyle }, attributes.formDescription ),
+						el( RichText, Object.assign( blockProps, {
+							style: {
+								'text-align': attributes.formDescriptionTextAlign
+							},
+							tagName: 'p',
+							value: attributes.formDescription,
+							onChange: function( content ) {
+								setAttributes( { formDescription: content } );
+							},
+							placeholder: sf4wp_gutenberg.block_default_content,
+						})),
 
 						el( TextControl,{ type: 'text', placeholder: sf4wp_gutenberg.placeholder_first_name, style: inputStyle }),
 
@@ -347,7 +439,6 @@
 						el( TextControl,{ type: 'email', placeholder: sf4wp_gutenberg.placeholder_email, style: inputStyle }),
 
 						el( Button,{ value: attributes.formBtnText, style: btnStyle }, attributes.formBtnText )
-
 					)					
 				)
 			);
@@ -361,23 +452,7 @@
 
 			// saved data
 
-			var formHeading = attributes.formHeading;
-			var formDescription = attributes.formDescription;
 			var formList = attributes.formList;
-
-			var formHeadingStyle = attributes.formHeadingStyle;
-			var formHeadingTextColor = attributes.formHeadingTextColor;
-
-			formHeadingStyle = {
-				color: formHeadingTextColor
-			}
-
-			var formDescriptionStyle = attributes.formDescriptionStyle;
-			var formDescriptionTextColor = attributes.formDescriptionTextColor;
-
-			formDescriptionStyle = {
-				color: formDescriptionTextColor
-			}
 
 			// button background, text color and style
 
@@ -390,7 +465,11 @@
 		        color: btnTextColor,
 		        padding: '15px',
 		        border: '0',
-		        cursor: 'pointer'
+		        cursor: 'pointer',
+				borderStyle: attributes.formBtnBorderStyle,
+				borderWidth: attributes.formBtnBorderWidth + 'px',
+				borderColor: attributes.formBtnBorderColor,
+				borderRadius: attributes.formBtnBorderRadius + 'px'
 		    };
 
 		    // style
@@ -409,7 +488,12 @@
 		        backgroundImage: 'url(' + formBgImg + ')',
 		        backgroundSize: 'cover',
 		        backgroundPosition: 'center',
-		        backgroundRepeat: 'no-repeat'
+		        backgroundRepeat: 'no-repeat',
+				borderStyle: attributes.formBorderStyle,
+				borderWidth: attributes.formBorderWidth + 'px',
+				borderColor: attributes.formBorderColor,
+				maxWidth: attributes.formMaxWidth ? attributes.formMaxWidth + 'px' : '',
+				borderRadius: attributes.formBorderRadius + 'px'
 		    };
 
 		    var inputStyle = {
@@ -420,24 +504,34 @@
 				el(
 					'div', { className: 'gb-sf4wp-gutenberg-email-optin-form-wrapper', style: formStyle },
 
-					el( RichText.Content, { tagName: 'h2', value: formHeading, style: formHeadingStyle }, formHeading ),
+					el( wp.blockEditor.RichText.Content, Object.assign( blockProps, {
+						style: {
+							'text-align': attributes.formHeadingTextAlign
+						},
+						tagName: 'h2', value: attributes.formHeading
+					})),
 
-					el( RichText.Content, { tagName: 'p', value: formDescription, style: formDescriptionStyle }, formDescription ),
+					el( wp.blockEditor.RichText.Content, Object.assign( blockProps, {
+						style: {
+							'text-align': attributes.formDescriptionTextAlign
+						},
+						tagName: 'p', value: attributes.formDescription
+					})),
 
 					el( 'div', { className: 'gb-sf4wp-gutenberg-email-optin-error-msg' }, '' ),
 
 					el( 'div', { className: 'gb-sf4wp-gutenberg-email-optin-success-msg' }, '' ),
 
 					el( 'div', { className: 'components-base-control__field' },
-						el( 'input', { type: 'text', placeholder: 'First name', className: 'components-text-control__input gb-sf4wp-gutenberg-email-optin-first-name', style: inputStyle })
+						el( 'input', { type: 'text', placeholder: sf4wp_gutenberg.placeholder_first_name, className: 'components-text-control__input gb-sf4wp-gutenberg-email-optin-first-name', style: inputStyle })
 					),
 
 					el( 'div', { className: 'components-base-control__field' },
-						el( 'input', { type: 'text', placeholder: 'Last name', className: 'components-text-control__input gb-sf4wp-gutenberg-email-optin-last-name', style: inputStyle })
+						el( 'input', { type: 'text', placeholder: sf4wp_gutenberg.placeholder_last_name, className: 'components-text-control__input gb-sf4wp-gutenberg-email-optin-last-name', style: inputStyle })
 					),
 
 					el( 'div', { className: 'components-base-control__field' },
-						el( 'input', { type: 'email', placeholder: 'Email', className: 'components-text-control__input gb-sf4wp-gutenberg-email-optin-email-address', style: inputStyle })
+						el( 'input', { type: 'email', placeholder: sf4wp_gutenberg.placeholder_email, className: 'components-text-control__input gb-sf4wp-gutenberg-email-optin-email-address', style: inputStyle })
 					),
 
 					el( 'div', { className: 'components-base-control__field' },
