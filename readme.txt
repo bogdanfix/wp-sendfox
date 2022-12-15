@@ -3,7 +3,7 @@ Contributors: bogdanfix
 Donate link: https://paypal.me/bogdanfix
 Tags: sendfox, integration, woocommerce, wordpress, wp, export, emails, users, api
 Requires at least: 4.6
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 5.2.4
 Stable tag: 1.2.0
 License: GPLv2 or later

@@ -11,7 +11,7 @@ Domain Path: /lang
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 3.0.0
-WC tested up to: 5.2.2
+WC tested up to: 7.2.0
 */
 
 define( 'GB_SF4WP_NAME', 'SendFox for WordPress' );
