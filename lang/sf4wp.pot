@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SendFox for Wordpress\n"
-"POT-Creation-Date: 2022-09-15 21:55+0600\n"
+"POT-Creation-Date: 2023-11-17 17:49+0600\n"
 "PO-Revision-Date: 2020-03-03 17:39+0600\n"
 "Last-Translator: \n"
 "Language-Team: BogdanFix, Inc <support@bogdanfix.com>\n"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Connect"
 msgstr ""
 
-#: wp-sendfox-admin.php:100 wp-sendfox-admin.php:288
+#: wp-sendfox-admin.php:100 wp-sendfox-admin.php:295
 msgid "Integrations"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Error: Undefined"
 msgstr ""
 
-#: wp-sendfox-admin.php:157 wp-sendfox.php:381
+#: wp-sendfox-admin.php:157 wp-sendfox.php:389
 msgid "Error: Response Status"
 msgstr ""
 
@@ -272,243 +272,259 @@ msgid ""
 "everybody subscribe from any page."
 msgstr ""
 
-#: wp-sendfox-admin.php:289
+#: wp-sendfox-admin.php:283
+msgid "LearnDash Course Enrollment"
+msgstr ""
+
+#: wp-sendfox-admin.php:284
+msgid "Subscribes people, when they enroll into your LearnDash courses"
+msgstr ""
+
+#: wp-sendfox-admin.php:296
 msgid "back to all integrations"
 msgstr ""
 
-#: wp-sendfox-admin.php:298
+#: wp-sendfox-admin.php:305
 msgid ""
 "The table below shows all available integrations. Click on the name of an "
 "integration to edit all settings specific to that integration."
 msgstr ""
 
-#: wp-sendfox-admin.php:306
+#: wp-sendfox-admin.php:313
 msgid "integration settings"
 msgstr ""
 
-#: wp-sendfox-admin.php:323
+#: wp-sendfox-admin.php:330
 msgid "Name"
 msgstr ""
 
-#: wp-sendfox-admin.php:324
+#: wp-sendfox-admin.php:331
 msgid "Description"
 msgstr ""
 
-#: wp-sendfox-admin.php:325
+#: wp-sendfox-admin.php:332
 msgid "Status"
 msgstr ""
 
-#: wp-sendfox-admin.php:334
+#: wp-sendfox-admin.php:341
 msgid "Configure this integration"
 msgstr ""
 
-#: wp-sendfox-admin.php:374 wp-sendfox-admin.php:598 wp-sendfox-admin.php:635
+#: wp-sendfox-admin.php:381 wp-sendfox-admin.php:603 wp-sendfox-admin.php:690
+#: wp-sendfox-admin.php:727
 msgid "Enable?"
 msgstr ""
 
-#: wp-sendfox-admin.php:384 wp-sendfox-admin.php:402 wp-sendfox-admin.php:422
-#: wp-sendfox-admin.php:504 wp-sendfox-admin.php:524 wp-sendfox-admin.php:608
-#: wp-sendfox-admin.php:645
+#: wp-sendfox-admin.php:391 wp-sendfox-admin.php:409 wp-sendfox-admin.php:429
+#: wp-sendfox-admin.php:511 wp-sendfox-admin.php:531 wp-sendfox-admin.php:613
+#: wp-sendfox-admin.php:700 wp-sendfox-admin.php:737
 msgid "yes"
 msgstr ""
 
-#: wp-sendfox-admin.php:386
+#: wp-sendfox-admin.php:393
 #, php-format
 msgid ""
 "Enable the %s integration? This will add a sign-up checkbox to the form."
 msgstr ""
 
-#: wp-sendfox-admin.php:392
+#: wp-sendfox-admin.php:399
 msgid "Implicit?"
 msgstr ""
 
-#: wp-sendfox-admin.php:404
+#: wp-sendfox-admin.php:411
 msgid ""
 "Select \"yes\" if you want to subscribe people without asking them "
 "explicitly."
 msgstr ""
 
-#: wp-sendfox-admin.php:406
+#: wp-sendfox-admin.php:413
 msgid "Does not bypass the double opt-in on Free & Lifetime plans."
 msgstr ""
 
-#: wp-sendfox-admin.php:412
+#: wp-sendfox-admin.php:419
 msgid "Pre-checked?"
 msgstr ""
 
-#: wp-sendfox-admin.php:424
+#: wp-sendfox-admin.php:431
 msgid "Select \"yes\" if the checkbox should be pre-checked."
 msgstr ""
 
-#: wp-sendfox-admin.php:430
+#: wp-sendfox-admin.php:437 wp-sendfox-admin.php:621
 msgid "SendFox list"
 msgstr ""
 
-#: wp-sendfox-admin.php:442 wp-sendfox-admin.php:698
+#: wp-sendfox-admin.php:449 wp-sendfox-admin.php:633 wp-sendfox-admin.php:790
 msgid "are you connected to SendFox?"
 msgstr ""
 
-#: wp-sendfox-admin.php:453
+#: wp-sendfox-admin.php:460 wp-sendfox-admin.php:644
 msgid "select the list..."
 msgstr ""
 
-#: wp-sendfox-admin.php:476
+#: wp-sendfox-admin.php:483
 msgid "Checkbox label text"
 msgstr ""
 
-#: wp-sendfox-admin.php:488
+#: wp-sendfox-admin.php:495
 msgid ""
 "HTML tags like <code>&lt;strong&gt&lt;em&gt&lt;a&gt</code> are allowed in "
 "the label text."
 msgstr ""
 
-#: wp-sendfox-admin.php:494
+#: wp-sendfox-admin.php:501
 msgid "Load default CSS?"
 msgstr ""
 
-#: wp-sendfox-admin.php:506
+#: wp-sendfox-admin.php:513
 msgid "Select \"yes\" if the checkbox looks sloppy."
 msgstr ""
 
-#: wp-sendfox-admin.php:514
+#: wp-sendfox-admin.php:521
 msgid "Manual comment approval check?"
 msgstr ""
 
-#: wp-sendfox-admin.php:526
+#: wp-sendfox-admin.php:533
 msgid ""
 "Submit email to SendFox after comment was approved manually. Otherwise, "
 "only emails from auto approved comments will be submitted."
 msgstr ""
 
-#: wp-sendfox-admin.php:536
+#: wp-sendfox-admin.php:543
 msgid "Position on checkout"
 msgstr ""
 
-#: wp-sendfox-admin.php:541
+#: wp-sendfox-admin.php:548
 msgid "select the position..."
 msgstr ""
 
-#: wp-sendfox-admin.php:550
+#: wp-sendfox-admin.php:557
 msgid "After billing details"
 msgstr ""
 
-#: wp-sendfox-admin.php:551
+#: wp-sendfox-admin.php:558
 msgid "After shipping details"
 msgstr ""
 
-#: wp-sendfox-admin.php:552
+#: wp-sendfox-admin.php:559
 msgid "After customer details"
 msgstr ""
 
-#: wp-sendfox-admin.php:553
+#: wp-sendfox-admin.php:560
 msgid "Before submit button"
 msgstr ""
 
-#: wp-sendfox-admin.php:554
+#: wp-sendfox-admin.php:561
 msgid "After order notes"
 msgstr ""
 
-#: wp-sendfox-admin.php:593
+#: wp-sendfox-admin.php:615
+#, php-format
+msgid ""
+"Enable the %s integration? All new enrollees to any course will be "
+"subscribed to your list."
+msgstr ""
+
+#: wp-sendfox-admin.php:685
 msgid ""
 "Important: Please, make sure only one Divi Theme or Divi Builder is "
 "enabled on your site. Either one theme or one plugin."
 msgstr ""
 
-#: wp-sendfox-admin.php:610
+#: wp-sendfox-admin.php:702
 #, php-format
 msgid ""
 "Enable the %s integration? This will add SendFox to the list of email "
 "providers in Divi."
 msgstr ""
 
-#: wp-sendfox-admin.php:646
+#: wp-sendfox-admin.php:738
 #, php-format
 msgid ""
 "Enable the %s integration? This will add new Email Optin block to "
 "Gutenberg blocks."
 msgstr ""
 
-#: wp-sendfox-admin.php:670
+#: wp-sendfox-admin.php:762
 msgid "Export your contacts"
 msgstr ""
 
-#: wp-sendfox-admin.php:674
+#: wp-sendfox-admin.php:766
 msgid ""
 "Here you can export either all your Wordpress user emails or all your "
 "WooCommerce customers into your SendFox account."
 msgstr ""
 
-#: wp-sendfox-admin.php:676
+#: wp-sendfox-admin.php:768
 msgid "If email already exists in your list(s), it will be ignored."
 msgstr ""
 
-#: wp-sendfox-admin.php:680
+#: wp-sendfox-admin.php:772
 msgid ""
 "To start pick the destination and source below and click \"Start export\":"
 msgstr ""
 
-#: wp-sendfox-admin.php:685
+#: wp-sendfox-admin.php:777
 msgid "Pick the List (export destination):"
 msgstr ""
 
-#: wp-sendfox-admin.php:718
+#: wp-sendfox-admin.php:810
 msgid "Pick Export mode (export source):"
 msgstr ""
 
-#: wp-sendfox-admin.php:722
+#: wp-sendfox-admin.php:814
 msgid "Export Wordpress user emails"
 msgstr ""
 
-#: wp-sendfox-admin.php:723
+#: wp-sendfox-admin.php:815
 msgid "Export WooCommerce customer emails"
 msgstr ""
 
-#: wp-sendfox-admin.php:728
+#: wp-sendfox-admin.php:820
 msgid "Do not close or reload the page during export."
 msgstr ""
 
-#: wp-sendfox-admin.php:740
+#: wp-sendfox-admin.php:832
 msgid "Start export"
 msgstr ""
 
-#: wp-sendfox-admin.php:744
+#: wp-sendfox-admin.php:836
 msgid "Contacts exported successfully:"
 msgstr ""
 
-#: wp-sendfox-admin.php:745
+#: wp-sendfox-admin.php:837
 msgid "Contacts not exported:"
 msgstr ""
 
-#: wp-sendfox-admin.php:989
+#: wp-sendfox-admin.php:1081
 msgid "Logged data"
 msgstr ""
 
-#: wp-sendfox-admin.php:993
+#: wp-sendfox-admin.php:1085
 msgid ""
 "Here you can find the detailed description of all the SendFox API requests "
 "and responses."
 msgstr ""
 
-#: wp-sendfox-admin.php:1004
+#: wp-sendfox-admin.php:1096
 msgid "Log was cleared successfully."
 msgstr ""
 
-#: wp-sendfox-admin.php:1012
+#: wp-sendfox-admin.php:1104
 msgid "Oops, log is empty..."
 msgstr ""
 
-#: wp-sendfox-admin.php:1026
+#: wp-sendfox-admin.php:1118
 msgid "Clear log"
 msgstr ""
 
-#: wp-sendfox.php:126
+#: wp-sendfox.php:134
 msgid "Oops, you can't access this page."
 msgstr ""
 
-#: wp-sendfox.php:283
+#: wp-sendfox.php:291
 msgid "API Key is not set."
 msgstr ""
 
-#: wp-sendfox.php:341
+#: wp-sendfox.php:349
 msgid "JSON Parse"
 msgstr ""

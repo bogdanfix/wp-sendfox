@@ -3,9 +3,9 @@ Contributors: bogdanfix
 Donate link: https://paypal.me/bogdanfix
 Tags: sendfox, integration, woocommerce, wordpress, wp, export, emails, users, api
 Requires at least: 4.6
-Tested up to: 6.1
+Tested up to: 6.4
 Requires PHP: 5.2.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ No, definitely not. This plugin uses a secure API connection to SendFox via the 
 7. Divi Builder. SendFox added to the list of email providers in Divi Email Optin block.
 
 == Changelog ==
+
+= 1.3.0 =
+* integration: LearnDash Course Enrollment (Big thanks to Rodolfo Martinez!);
+* feature: added WooCommerce HPOS support;
 
 = 1.2.0 =
 * feature: (Gutenberg Opt-in Block) added form border styling options, button border styling options, form width (fixed or 100%), added separate sections for Form and Button options in Gutenberg Sidebar, added transparency selector for Form Background colorpicker;

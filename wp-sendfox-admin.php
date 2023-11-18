@@ -276,6 +276,13 @@
                     'title' => __( 'Gutenberg Email Optin', 'sf4wp' ),
                     'description' => __( 'Adds new customizable Email Optin block to Gutenberg. Pick a list and let everybody subscribe from any page.', 'sf4wp' ),
                 ),
+
+                // LearnDash integration
+
+                'learndash-course' => array(
+                    'title' => __( 'LearnDash Course Enrollment', 'sf4wp' ),
+                    'description' => __( 'Subscribes people, when they enroll into your LearnDash courses', 'sf4wp' ),
+                ),
             );
 
             if( !empty( $_GET['integration'] ) && array_key_exists( $_GET['integration'], $all_integrations ) )
@@ -575,6 +582,91 @@
                 <?php endif; ?>
 
                 </tbody></table>
+
+                <div>
+                    <?php submit_button(); ?>
+                </div>
+
+<?php
+                elseif(
+                    'learndash-course' === $integration
+                ):
+
+                    if( empty( $options[ $integration ] ) )
+                    {
+                        $options[ $integration ] = array();
+                    }
+?>
+                <table class="form-table"><tbody>
+
+                    <tr>
+                        <th><?php _e( 'Enable?', 'sf4wp' ); ?></th>
+                        <td>
+                            
+                            <input 
+                                type="checkbox" 
+                                name="gb_sf4wp_options[<?php echo $integration; ?>][enabled]"
+                                value="1" 
+                                <?php 
+                                echo ( !empty( $options[ $integration ]['enabled'] ) ? 
+                                    checked( $options[ $integration ]['enabled'], '1', FALSE ) : '' );
+                                ?> /> <?php _e( 'yes', 'sf4wp' ); ?>
+
+                            <p class="hint"><?php echo sprintf( __( 'Enable the %s integration? All new enrollees to any course will be subscribed to your list.', 'sf4wp' ), $all_integrations[ $integration ]['title'] ); ?></p>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th><?php _e( 'SendFox list', 'sf4wp' ); ?></th>
+                        <td>
+                            <?php 
+
+                                $lists = gb_sf4wp_get_lists();
+
+                                if( 
+                                    $lists['status'] === 'error' || 
+                                    empty( $lists['result'] ) || 
+                                    empty( $lists['result']['data'] )
+                                )
+                                {
+                                    echo 'No lists found, <a href="' . admin_url( 'admin.php?page=' . GB_SF4WP_ID . '&tab=connect' ) . '">' . __( 'are you connected to SendFox?', 'sf4wp' ) . '</a>';
+                                }
+                                else
+                                {
+                                    echo '<select name="gb_sf4wp_options[' . $integration . '][list]" class="widefat">';
+
+                                    if( empty( $options[ $integration ]['list'] ) )
+                                    {
+                                        $options[ $integration ]['list'] = '';
+                                    }
+
+                                    echo '<option value="">' . __( 'select the list...', 'sf4wp' ) . '</option>';
+
+                                    foreach( $lists['result']['data'] as $l )
+                                    {
+                                        if( $options[ $integration ]['list'] == $l['id'] )
+                                        {
+                                            echo '<option value="' . $l['id'] . '" selected="selected">' . $l['name'] . '</option>';
+                                        }
+                                        else
+                                        {
+                                            echo '<option value="' . $l['id'] . '">' . $l['name'] . '</option>';
+                                        }
+                                    }
+
+                                    echo '</select>';
+                                }
+
+                            ?>
+
+                        </td>
+                    </tr>
+
+                </tbody></table>
+
+                <?php // to help pre_update_option function process single checkbox properly ?>
+                <input type="hidden" name="gb_sf4wp_options[<?php echo $integration; ?>][dummy]" value="1" />
 
                 <div>
                     <?php submit_button(); ?>

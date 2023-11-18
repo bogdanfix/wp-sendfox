@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/wp-sendfox/
 Description: Capture emails and add them to your SendFox list via comments, registration, WooCommerce checkout, Gutenberg page or Divi Builder page. Export your WP users and WooCommerce customers to your list.
 Author: BogdanFix
 Author URI: https://bogdanfix.com/
-Version: 1.2.0
+Version: 1.3.0
 Text Domain: sf4wp
 Domain Path: /lang
 License: GNU General Public License v3.0
@@ -15,7 +15,7 @@ WC tested up to: 7.2.0
 */
 
 define( 'GB_SF4WP_NAME', 'SendFox for WordPress' );
-define( 'GB_SF4WP_VER', '1.2.0' );
+define( 'GB_SF4WP_VER', '1.3.0' );
 define( 'GB_SF4WP_ID', 'wp-sendfox' );
 
 define( 'GB_SF4WP_CORE_FILE', __FILE__ );
@@ -78,6 +78,14 @@ function gb_sf4wp_init()
             }
         }
     }
+
+    // declare WooCommerce HPOS support
+
+    add_action( 'before_woocommerce_init', function() {
+        if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+        }
+    } );
 }
 add_action( 'init', 'gb_sf4wp_init' );
 
@@ -847,6 +855,49 @@ function gb_sf4wp_order_processed( $order_id )
 add_action( 'woocommerce_checkout_order_processed', 'gb_sf4wp_order_processed' );
 
 /**
+ * LearnDash Course Enrollment: handle enrollment
+ *
+ * @since 1.3.0
+ */
+
+function gb_sf4wp_learndash_course_enroll( $user_id, $course_id, $course_access_list, $remove )
+{
+    if( ! $remove )
+    {
+        $user = get_user_by( 'id', $user_id );
+
+        if( !empty( $user ) && !empty( $user->user_email ) )
+        {
+            $options = get_option( 'gb_sf4wp_options' );
+
+            if( 
+                !empty( $options['learndash-course'] ) && 
+                !empty( $options['learndash-course']['enabled'] ) && 
+                !empty( $options['learndash-course']['list'] )
+            )
+            {
+                $contact = array(
+                    'email' => $user->user_email,
+                    'lists' => array( 
+                        intval( $options['learndash-course']['list'] ) 
+                    ),
+                );
+
+                if( !empty( $user->user_nicename ) )
+                {
+                    $contact['first_name'] = $user->user_nicename;
+                }
+
+                $contact = apply_filters( 'sf4wp_before_add_contact', $contact, 'learndash-course', $user );
+
+                $result = gb_sf4wp_add_contact( $contact ); 
+            }
+        }
+    }
+}
+add_action( 'learndash_update_course_access', 'gb_sf4wp_learndash_course_enroll', 10, 4 );
+
+/**
  * Process synchronization
  *
  * @since 1.0.0
@@ -890,13 +941,34 @@ function gb_sf4wp_process_sync()
             {
                 global $wpdb;
 
-                $users = $wpdb->get_var(
+                if( Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() )
+                {
+                    $orders = wc_get_orders(
+                        array(
+                            'field_query' => array(
+                                array(
+                                    'field' => 'billing_email',
+                                    'value' => '',
+                                    'comparison' => '!='
+                                ),
+                            ),
+                            'limit' => -1,
+                            'return' => 'ids',
+                        )
+                    );
 
-                    "SELECT COUNT(DISTINCT meta_value) 
-                    FROM {$wpdb->postmeta} 
-                    WHERE meta_key = '_billing_email' AND meta_value <> '' ;" 
+                    $users = count( $orders );
+                }
+                else
+                {
+                    $users = $wpdb->get_var(
 
-                );
+                        "SELECT COUNT(DISTINCT meta_value) 
+                        FROM {$wpdb->postmeta} 
+                        WHERE meta_key = '_billing_email' AND meta_value <> '' ;" 
+
+                    );
+                }
 
                 if( !empty( $users ) )
                 {
@@ -1004,13 +1076,47 @@ function gb_sf4wp_process_sync()
                 $offset = intval( GB_SF4WP_USERS_PER_STEP * ( $step - 1 ) );
                 $limit = intval( GB_SF4WP_USERS_PER_STEP );
 
-                $customers = $wpdb->get_results( 
+                if( Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() )
+                {
+                    $orders = wc_get_orders(
+                        array(
+                            'field_query' => array(
+                                array(
+                                    'field' => 'billing_email',
+                                    'value' => '',
+                                    'comparison' => '!='
+                                ),
+                            ),
+                            'limit' => $limit,
+                            'offset' => $offset
+                        )
+                    );
 
-                    "SELECT DISTINCT meta_value as billing_email 
-                    FROM {$wpdb->postmeta} 
-                    WHERE meta_key = '_billing_email' AND meta_value <> '' 
-                    LIMIT {$offset}, {$limit};" 
-                );
+                    $customers = array();
+
+                    if( !empty( $orders ) )
+                    {
+                        $c = new stdClass();
+
+                        foreach( $orders as $o )
+                        {
+                            $c = new stdClass();
+                            $c->billing_email = $o->get_billing_email();
+
+                            $customers[] = $c;
+                        }
+                    }
+                }
+                else
+                {
+                    $customers = $wpdb->get_results( 
+
+                        "SELECT DISTINCT meta_value as billing_email 
+                        FROM {$wpdb->postmeta} 
+                        WHERE meta_key = '_billing_email' AND meta_value <> '' 
+                        LIMIT {$offset}, {$limit};" 
+                    );
+                }
 
                 if( !empty( $customers ) )
                 {
