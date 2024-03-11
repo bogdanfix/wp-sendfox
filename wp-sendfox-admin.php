@@ -881,7 +881,8 @@
                         action: 'sf4wp_process_sync',
                         stage: 1,
                         list: list,
-                        mode: mode
+                        mode: mode,
+                        nonce: '<?php echo wp_create_nonce('sf4wp-sync-nonce'); ?>'
                     };
 
                     var data2 = {};

@@ -5,7 +5,7 @@ Tags: sendfox, integration, woocommerce, wordpress, wp, export, emails, users, a
 Requires at least: 4.6
 Tested up to: 6.4
 Requires PHP: 5.2.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ No, definitely not. This plugin uses a secure API connection to SendFox via the 
 7. Divi Builder. SendFox added to the list of email providers in Divi Email Optin block.
 
 == Changelog ==
+
+= 1.3.1 =
+* feature: support for WooCommerce HPOS;
+* tweak: improved Access Control for gb_sf4wp_process_sync() (Big thanks to Abdi Pranata);
 
 = 1.3.0 =
 * integration: LearnDash Course Enrollment (Big thanks to Rodolfo Martinez!);

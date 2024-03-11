@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/wp-sendfox/
 Description: Capture emails and add them to your SendFox list via comments, registration, WooCommerce checkout, Gutenberg page or Divi Builder page. Export your WP users and WooCommerce customers to your list.
 Author: BogdanFix
 Author URI: https://bogdanfix.com/
-Version: 1.3.0
+Version: 1.3.1
 Text Domain: sf4wp
 Domain Path: /lang
 License: GNU General Public License v3.0
@@ -15,7 +15,7 @@ WC tested up to: 7.2.0
 */
 
 define( 'GB_SF4WP_NAME', 'SendFox for WordPress' );
-define( 'GB_SF4WP_VER', '1.3.0' );
+define( 'GB_SF4WP_VER', '1.3.1' );
 define( 'GB_SF4WP_ID', 'wp-sendfox' );
 
 define( 'GB_SF4WP_CORE_FILE', __FILE__ );
@@ -78,16 +78,16 @@ function gb_sf4wp_init()
             }
         }
     }
-
-    // declare WooCommerce HPOS support
-
-    add_action( 'before_woocommerce_init', function() {
-        if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
-        }
-    } );
 }
 add_action( 'init', 'gb_sf4wp_init' );
+
+// declare WooCommerce HPOS support
+
+add_action( 'before_woocommerce_init', function() {
+    if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+    }
+} );
 
 /**
  * Load plugin's textdomain
@@ -907,6 +907,24 @@ function gb_sf4wp_process_sync()
 {
     $result = array( 'result' => 'error' );
 
+    if( !wp_verify_nonce( $_POST['nonce'], 'sf4wp-sync-nonce' ) )
+    {
+        $result['error_text'] = 'nonce error';
+
+        echo json_encode( $result );
+
+        wp_die();
+    }
+
+    if( !current_user_can( 'manage_options' ) )
+    {
+        $result['error_text'] = 'user role error';
+
+        echo json_encode( $result );
+
+        wp_die();
+    }
+
     if( 
         !empty( $_POST['stage'] ) &&
         !empty( $_POST['list'] ) &&
@@ -934,7 +952,7 @@ function gb_sf4wp_process_sync()
                 }
                 else
                 {
-                    $response['error_text'] = 'count users error';
+                    $result['error_text'] = 'count users error';
                 }
             }
             elseif( $mode == 'wc-customers' )
@@ -979,12 +997,12 @@ function gb_sf4wp_process_sync()
                 }
                 else
                 {
-                    $response['error_text'] = 'count customers error';
+                    $result['error_text'] = 'count customers error';
                 }
             }
             else
             {
-                $response['error_text'] = 'mode error';
+                $result['error_text'] = 'mode error';
             }
         }
         elseif( $stage === 2 )
@@ -1066,7 +1084,7 @@ function gb_sf4wp_process_sync()
                 }
                 else
                 {
-                    $response['error_text'] = 'get users error';
+                    $result['error_text'] = 'get users error';
                 }
             }
             elseif( $mode == 'wc-customers' )
@@ -1168,22 +1186,22 @@ function gb_sf4wp_process_sync()
                 }
                 else
                 {
-                    $response['error_text'] = 'get customers error';
+                    $result['error_text'] = 'get customers error';
                 }
             }
             else
             {
-                $response['error_text'] = 'mode error';
+                $result['error_text'] = 'mode error';
             }
         }
         else
         {
-            $response['error_text'] = 'stage error';
+            $result['error_text'] = 'stage error';
         }
     }
     else
     {
-        $response['error_text'] = 'request error';
+        $result['error_text'] = 'request error';
     }
 
     echo json_encode( $result );
